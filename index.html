@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator</title>
+</head>
+<body> 
+    <script>        
+        class User{
+            constructor(username){
+                this.username = username;
+                this.status = true;
+            }
+        }
+
+        class Users {
+            constructor(){
+                this.users = [];
+            }
+
+            addUser(user){
+                this.users.push(user);
+            }
+
+            removeUser(user){
+                this.users = this.users.filter(currentUser => currentUser !== user);
+            }
+
+            [Symbol.iterator]() {
+                return this.generatorUser();
+            }
+
+            //Patron iterador- Del primero al ultimo
+            /*
+            *generatorUser(){
+                for(var i = 0; i < this.users.length; i++){
+                    yield this.users[i];
+                }
+            }
+            */
+
+            //Patron iterador- Del ultimo al primero
+            /*
+            *generatorUser(){
+                for(var i = this.users.length - 1; i >= 0; i--){
+                    yield this.users[i];
+                }
+            }
+            */
+        }
+
+        let users = new Users();
+        let user1 = new User("Santiago");
+        let user2 = new User("Braian");
+        let user3 = new User("Daniel");
+        users.addUser(user1);
+        users.addUser(user2);
+        users.addUser(user3);
+
+
+        
+        for(let user of users){
+            console.log(user)
+        }
+    </script>
+    <button onclick=""></button>
+</body>
+</html>
