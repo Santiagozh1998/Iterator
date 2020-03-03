@@ -7,7 +7,10 @@
 </head>
 <body> 
     <h1>Contenido</h1>
-    <script>        
+    <script>      
+
+
+        //Elementos a guardar
         class User{
             constructor(username){
                 this.username = username;
@@ -15,6 +18,8 @@
             }
         }
 
+
+        //Estructura de datos donde se guardan los elementos
         class Users {
             constructor(){
                 this.users = [];
@@ -49,6 +54,8 @@
             */
         }
 
+
+        //Agregando elementos
         let users = new Users();
         let user1 = new User("Santiago");
         let user2 = new User("Braian");
@@ -58,10 +65,11 @@
         users.addUser(user3);
 
 
-        
+        //Iteracion
         for(let user of users){
             console.log(user)
         }
+        
     </script>
 </body>
 </html>
